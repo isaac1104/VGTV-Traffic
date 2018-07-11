@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import ReactMapGL from 'react-map-gl';
+import mapboxgl from 'mapbox-gl';
 
 class Map extends Component {
-  state = {
-    viewport: {
-      width: 1140,
-      height: 800,
-      latitude: 34.04924594193164,
-      longitude: -118.24104309082031,
-      zoom: 13
-    }
-  };
+  componentDidMount() {
+    mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWMxMTA0IiwiYSI6ImNqZDgwYjJ5MTI1dXUycWw5M3E5bnpldDcifQ.tRpvJ9X5wq7ke4t9KGd4yg';
+    const MapboxTraffic = require('@mapbox/mapbox-gl-traffic');
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v10',
+        center: [-117.716092, 33.639792],
+        zoom: 12,
+    });
+    map.addControl(new MapboxTraffic());
+  }
 
   render() {
+    const style = {
+      map: {
+        height: '100vh'
+      }
+    }
+
     return (
-      <ReactMapGL
-        {...this.state.viewport}
-        mapboxApiAccessToken={'pk.eyJ1IjoiaXNhYWMxMTA0IiwiYSI6ImNqZDgwYjJ5MTI1dXUycWw5M3E5bnpldDcifQ.tRpvJ9X5wq7ke4t9KGd4yg'}
-        mapStyle='mapbox://styles/mapbox/streets-v10'
-        onViewportChange={(viewport) => this.setState({viewport})}
-      />
+      <div id='map' style={style.map} />
     );
   }
 }
