@@ -9,7 +9,7 @@ class Map extends Component {
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v10',
         center: [-117.716092, 33.639792],
-        zoom: 11.5,
+        zoom: 11,
     });
     new mapboxgl.Marker().setLngLat([-117.716092, 33.639792]).addTo(map)
     const trafficOptions = {
