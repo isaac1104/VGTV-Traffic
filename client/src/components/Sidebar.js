@@ -5,9 +5,6 @@ const { Sider } = Layout;
 class Sidebar extends Component {
   render() {
     const style = {
-      sidebar: {
-        minHeight: '100vh'
-      },
       text: {
         color: '#fff',
         marginLeft: '10px'
@@ -18,9 +15,7 @@ class Sidebar extends Component {
     }
 
     return (
-      <Sider
-        style={style.sidebar}
-      >
+      <Sider>
         <div style={style.container}>
           <h1 style={style.text}><Icon type="home" /> ETA To:</h1>
           <h3 style={style.text}>Fullerton</h3>
