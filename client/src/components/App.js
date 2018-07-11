@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+import Map from './Map';
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Welcome to React!</h1>
-      </div>
+      <Fragment>
+        <Map />
+      </Fragment>
     );
   }
 }
