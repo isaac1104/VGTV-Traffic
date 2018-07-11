@@ -1,37 +1,34 @@
 import React, { Component } from 'react';
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Icon } from 'antd';
 const { Sider } = Layout;
 
 class Sidebar extends Component {
-  state = {
-    collapsed: false
-  };
-
-  onCollapse = collapsed => {
-    this.setState({ collapsed });
-  };
   render() {
     const style = {
       sidebar: {
-        minHeight: '80vh'
+        minHeight: '100vh'
+      },
+      text: {
+        color: '#fff',
+        marginLeft: '10px'
+      },
+      container: {
+        marginTop: '20px'
       }
     }
 
     return (
       <Sider
-        collapsible
-        collapsedWidth="0"
-        collapsed={this.state.collapsed}
-        onCollapse={this.onCollapse}
         style={style.sidebar}
       >
-        <div className="logo" />
-        <Menu mode="inline" theme='dark' defaultSelectedKeys={['0']}>
-          <Menu.Item key="1">
-            <Icon type="home" />
-            <span className="nav-text">Home</span>
-          </Menu.Item>
-        </Menu>
+        <div style={style.container}>
+          <h1 style={style.text}><Icon type="home" /> ETA To:</h1>
+          <h3 style={style.text}>Fullerton</h3>
+          <h3 style={style.text}>Cerritos</h3>
+          <h3 style={style.text}>Lake Forest</h3>
+          <h3 style={style.text}>Newport Beach</h3>
+          <h3 style={style.text}>Los Angeles</h3>
+        </div>
       </Sider>
     );
   }
