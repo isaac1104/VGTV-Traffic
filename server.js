@@ -3,6 +3,8 @@ const path = require("path");
 const PORT = process.env.PORT || 5000;
 const app = express();
 
+require('./routes/distance_api_routes')(app);
+
 app.use((err, req, res, next) => {
   res.status(422).send({ error: err.message });
 });
