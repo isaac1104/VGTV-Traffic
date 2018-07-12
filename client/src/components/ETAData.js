@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import Clock from 'react-live-clock';
 import { Icon, Spin } from 'antd';
 
 class ETAData extends Component {
@@ -13,9 +14,10 @@ class ETAData extends Component {
     const style = {
       text: {
         color: '#fff',
-        marginLeft: '30px'
+        marginLeft: '20px'
       },
       spin: {
+        marginTop: '20px',
         display: 'flex',
         justifyContent: 'center'
       }
@@ -34,7 +36,7 @@ class ETAData extends Component {
     }
     return (
       <div>
-        <h1 style={{ color: '#fff', marginLeft: '30px' }}><Icon type="home" /> ETA To:</h1>
+        <h1 style={{ color: '#fff', marginLeft: '20px' }}><Icon type="home" /> ETA To:</h1>
         {data.map(data => {
           return <h3 key={data.destination} style={style.text}>{data.destination}: {data.duration}</h3>
         })}
@@ -45,6 +47,11 @@ class ETAData extends Component {
   render() {
     return (
       <Fragment>
+        <Clock
+          format={'h:mm:ssa'}
+          ticking={true}
+          timezone={'US/Pacific'}
+        />
         {this.renderDistanceData()}
       </Fragment>
     );
