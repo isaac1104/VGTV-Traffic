@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ETAData from './ETAData';
-import { Layout, Icon } from 'antd';
+import { Layout } from 'antd';
 const { Sider } = Layout;
 
 class Sidebar extends Component {
@@ -18,7 +18,6 @@ class Sidebar extends Component {
     return (
       <Sider width={300}>
         <div style={style.container}>
-          <h1 style={style.text}><Icon type="home" /> ETA To:</h1>
           <ETAData />
         </div>
       </Sider>

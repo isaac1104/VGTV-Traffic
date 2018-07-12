@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
+import { Icon, Spin } from 'antd';
 
 class ETAData extends Component {
   componentDidMount() {
@@ -13,17 +14,32 @@ class ETAData extends Component {
       text: {
         color: '#fff',
         marginLeft: '30px'
+      },
+      spin: {
+        display: 'flex',
+        justifyContent: 'center'
       }
     }
 
     if (isFetching || !data.rows) {
-      return <h1 style={style.text}>Loading...</h1>
-    }
-    return data.rows[0].elements.map(dest => {
       return (
-        <h3 key={dest.duration.value} style={style.text}>{dest.duration.text}</h3>
-      )
-    });
+        <div style={style.spin}>
+          <Spin
+            indicator={<Icon type="loading" />}
+            size='large'
+            tip='Fetching Traffic Data...'
+          />
+        </div>
+      );
+    }
+    return (
+      <div>
+        <h1 style={{ color: '#fff' }}><Icon type="home" /> ETA To:</h1>
+        {data.rows[0].elements.map(dest => {
+          return <h3 key={dest.duration.value} style={style.text}>{dest.duration.text}</h3>
+        })}
+      </div>
+    );
   }
 
   render() {
