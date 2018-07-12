@@ -11,7 +11,7 @@ const receiveDistanceData = data => {
     return data.duration.text;
   });
   const newData = data.destination_addresses.map((data, i) => {
-    return { destination: data, duration: duration[i] };
+    return { destination: data.split(' ').slice(0, -2).join(' ').replace( /,/g, "" ), duration: duration[i] };
   });
   return {
     type: RECEIVE_DISTANCE_DATA,
