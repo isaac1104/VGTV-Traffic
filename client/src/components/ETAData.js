@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 import { Icon, Spin } from 'antd';
@@ -44,9 +44,9 @@ class ETAData extends Component {
 
   render() {
     return (
-      <div>
+      <Fragment>
         {this.renderDistanceData()}
-      </div>
+      </Fragment>
     );
   }
 }
