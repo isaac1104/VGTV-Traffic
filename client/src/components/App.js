@@ -8,9 +8,7 @@ class App extends Component {
   render() {
     return (
       <Layout>
-        <Sider>
-          <Sidebar />
-        </Sider>
+        <Sidebar />
         <Layout>
           <Content>
             <Map />
