@@ -6,10 +6,18 @@ const requestDistanceData = () => ({
   payload: true
 });
 
-const receiveDistanceData = data => ({
-  type: RECEIVE_DISTANCE_DATA,
-  payload: data
-});
+const receiveDistanceData = data => {
+  const duration = data.rows[0].elements.map(data => {
+    return data.duration.text;
+  });
+  const newData = data.destination_addresses.map((data, i) => {
+    return { destination: data, duration: duration[i] };
+  });
+  return {
+    type: RECEIVE_DISTANCE_DATA,
+    payload: newData
+  }
+};
 
 export const fetchDistanceData = () => async dispatch => {
   dispatch(requestDistanceData());

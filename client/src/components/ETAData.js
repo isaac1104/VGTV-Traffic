@@ -21,7 +21,7 @@ class ETAData extends Component {
       }
     }
 
-    if (isFetching || !data.rows) {
+    if (isFetching) {
       return (
         <div style={style.spin}>
           <Spin
@@ -34,16 +34,15 @@ class ETAData extends Component {
     }
     return (
       <div>
-        <h1 style={{ color: '#fff' }}><Icon type="home" /> ETA To:</h1>
-        {data.rows[0].elements.map(dest => {
-          return <h3 key={dest.duration.value} style={style.text}>{dest.duration.text}</h3>
+        <h1 style={{ color: '#fff', marginLeft: '30px' }}><Icon type="home" /> ETA To:</h1>
+        {data.map(data => {
+          return <h3 key={data.destination} style={style.text}>{data.destination}: {data.duration}</h3>
         })}
       </div>
     );
   }
 
   render() {
-    console.log(this.props.data);
     return (
       <div>
         {this.renderDistanceData()}
