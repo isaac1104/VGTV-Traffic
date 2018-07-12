@@ -29,7 +29,7 @@ class ETAData extends Component {
           <Spin
             indicator={<Icon type='loading' />}
             size='large'
-            tip='Fetching Traffic Data...'
+            tip='Fetching ETA Data...'
           />
         </div>
       );
