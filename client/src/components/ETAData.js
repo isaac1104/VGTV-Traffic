@@ -27,7 +27,7 @@ class ETAData extends Component {
       return (
         <div style={style.spin}>
           <Spin
-            indicator={<Icon type="loading" />}
+            indicator={<Icon type='loading' />}
             size='large'
             tip='Fetching Traffic Data...'
           />
@@ -36,7 +36,7 @@ class ETAData extends Component {
     }
     return (
       <div>
-        <h1 style={{ color: '#fff', marginLeft: '20px' }}><Icon type="home" /> ETA To:</h1>
+        <h1 style={{ color: '#fff', marginLeft: '20px' }}><Icon type='home' /> ETA To:</h1>
         {data.map(data => {
           return <h3 key={data.destination} style={style.text}>{data.destination}: {data.duration}</h3>
         })}
