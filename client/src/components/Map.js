@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 
 class Map extends Component {
   componentDidMount() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiaXNhYWMxMTA0IiwiYSI6ImNqZDgwYjJ5MTI1dXUycWw5M3E5bnpldDcifQ.tRpvJ9X5wq7ke4t9KGd4yg';
+    mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
     const MapboxTraffic = require('@mapbox/mapbox-gl-traffic');
     const map = new mapboxgl.Map({
         container: 'map',
