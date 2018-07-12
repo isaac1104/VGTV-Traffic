@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Sidebar from './Sidebar';
 import Map from './Map';
 import { Layout } from 'antd';
-const { Sider, Content } = Layout;
+const { Content } = Layout;
 
 class App extends Component {
   render() {
