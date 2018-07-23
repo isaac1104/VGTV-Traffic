@@ -16,7 +16,7 @@ const receiveDistanceData = data => {
   return {
     type: RECEIVE_DISTANCE_DATA,
     payload: newData
-  }
+  };
 };
 
 export const fetchDistanceData = () => async dispatch => {
