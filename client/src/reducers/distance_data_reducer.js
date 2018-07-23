@@ -15,7 +15,14 @@ function distanceDataReducer(state = INITIAL_STATE, action) {
     case RECEIVE_DISTANCE_DATA:
       return {
         ...state,
-        data: action.payload,
+        data: [
+          ...action.payload.destination_addresses.map((data, i) => {
+            return {
+              destination: data.split(' ').slice(0, -2).join(' ').replace( /,/g, "" ),
+              duration: action.payload.rows[0].elements[i].duration.text
+            };
+          })
+        ],
         isFetching: false
       };
     default:
