@@ -6,12 +6,10 @@ const requestDistanceData = () => ({
   payload: true
 });
 
-const receiveDistanceData = data => {
-  return {
-    type: RECEIVE_DISTANCE_DATA,
-    payload: data
-  };
-};
+const receiveDistanceData = data => ({
+  type: RECEIVE_DISTANCE_DATA,
+  payload: data
+});
 
 export const fetchDistanceData = () => async dispatch => {
   dispatch(requestDistanceData());
